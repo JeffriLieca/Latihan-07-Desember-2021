@@ -21,9 +21,7 @@ namespace Latihan_07_Desember_2021
                 kalimat = Console.ReadLine().ToUpper();
             }
             for (int i = 0; i < kalimat.Length; i++)
-            {
                 listHuruf.Add(kalimat[i]);
-            }
             Console.Write("INPUT KATA: ");
             string kata = Console.ReadLine().ToUpper();
             while (kata.Length <= 1)
@@ -35,27 +33,16 @@ namespace Latihan_07_Desember_2021
             Console.WriteLine("OUTPUT");
             Console.WriteLine("STATISTIK HURUF:");
             var query = listHuruf.GroupBy(x => x).Where(g => g.Count() >= 1).Select(y => y.Key).ToList();
-
-            var withoutSpecial = new string(query.Where(c => Char.IsLetterOrDigit(c)
-                                            || Char.IsWhiteSpace(c)).ToArray());
             query.Remove(' ');
             for (int i = 0; i < query.Count;i++)
-            {
                 if (char.IsLetterOrDigit(query[i]))
-                {
                     tampung.Add(query[i]);
-                }
-            }
             tampung.Sort();
             for (int i = 0; i < query.Count; i++)
             {
-                if (char.IsLetterOrDigit(query[i]))
-                {
-                }
+                if (char.IsLetterOrDigit(query[i])) { }
                 else
-                {
                     tampung.Add(query[i]);
-                }
             }
             for (int i = 0; i < tampung.Count; i++)
             {
@@ -63,9 +50,7 @@ namespace Latihan_07_Desember_2021
                 Console.WriteLine($"{tampung[i]}: {jumlahHuruf} HURUF");
                 jumlahHurufTotal+= jumlahHuruf;
                 if ((i + 1) % 5 == 0)
-                {
                     Console.WriteLine();
-                }
             }
             Console.WriteLine();
             Console.WriteLine("STATISTIK KATA:");
